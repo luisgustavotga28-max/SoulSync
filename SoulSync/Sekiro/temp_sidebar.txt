@@ -1,0 +1,41 @@
+﻿<aside class="sidebar">
+
+  <!-- Barra de pesquisa -->
+  <div class="search-box">
+    <input type="text" placeholder="Pesquisar...">
+    <button>&#128269;</button>
+  </div>
+
+  <!-- Quick Access -->
+  <div class="sidebar-section quick-access">
+    <h3>Acesso RÃ¡pido</h3>
+    <div class="quick-access-grid">
+      <a href="indexSekiro.html">Sobre</a>
+      <a href="pages/chefes/index.html">Chefes</a>
+      <a href="pages\ferramentas\index.html">Ferramentas</a>
+      <a href="pages\finais\index.html">Finais</a>
+      <a href="pages\habilidades\index.html">Habilidades</a>
+      <a href="pages\melhorias\index.html">Melhorias</a>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Guias Essenciais</h3>
+    <ul>
+      <li><a href="pages\passo a passo\index.html</a></li>
+      <li><a href="pages\mapa conteudo\index.html">Mapa de conteÃºdo</a></li>
+      <li><a href="#pages\regioes de ashina\index.html>RegiÃµes de Ashina</a></li>
+      <li><a href="pages\missoes secundarias\index.html">MissÃµes secundÃ¡rias</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-section">
+    <h3>Outros Mundos</h3>
+    <ul>
+      <li><a href="#main-chapter">SoulSync Portal</a></li>
+      <li><a href="#side-quests">Black Myth Wukong</a></li>
+    </ul>
+  </div>
+
+</aside>
+

@@ -1,0 +1,245 @@
+:root {
+    --bg: #050608;
+    --bg-accent: #1b1322;
+    --panel: rgba(11, 13, 24, 0.78);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --card: rgba(28, 32, 54, 0.85);
+    --card-border: rgba(255, 255, 255, 0.12);
+    --accent: #f7c076;
+    --accent-strong: #f9d998;
+    --muted: #b5bed7;
+    --text: #f4f3ef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    color: var(--text);
+    background: #252525;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    filter: blur(120px);
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.into-hero {
+    width: 100vw;
+    min-height: 100vh;
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    padding-bottom: 0;
+    position: relative;
+    overflow: visible;
+    box-shadow: none;
+    z-index: 1;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: none;
+    transition: opacity .7s ease, transform .5s ease;
+    filter: none;
+    z-index: 0;
+    pointer-events: none;
+}
+.hero-bg.is-visible { opacity: 1; transform: none; }
+.hero-bg.is-exiting { opacity: 0; transform: none; }
+.into-hero::after { display: none; }
+.into-hero::before { display: none; }
+
+.site-header {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 2;
+}
+.site-logo {
+    width: clamp(160px, 25vw, 220px);
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.45));
+}
+.tagline {
+    margin-top: 8px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+.selector {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.selector h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin: 0;
+    color: #fdfaf3;
+    letter-spacing: 0.04em;
+}
+.subtitle {
+    margin: 10px auto 32px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.5;
+}
+.games button {
+    border: none;
+    background: none;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 340px);
+    justify-content: center;
+    gap: 65px;
+}
+
+/* * REMOVIDO O "RETÂNGULO" DO CARD
+ * background, border, padding, border-radius e box-shadow foram zerados.
+*/
+.game {
+    background: none; /* Fundo transparente */
+    border: none; /* Sem borda */
+    border-radius: 0; /* Sem bordas arredondadas */
+    padding: 0; /* Sem preenchimento interno */
+    box-shadow: none; /* Sem sombra no card */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Importante para a imagem não vazar */
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.35s ease,
+                background 0.35s ease;
+}
+
+/* * HOVER PARA APENAS A LOGO
+ * Removido o efeito de "levantar" e sombra do card.
+ * A transição de transform agora é para a imagem.
+*/
+.game:hover {
+    transform: none; /* Remove o translateY */
+    background: none; /* Mantém o fundo transparente */
+    border-color: transparent; /* Remove borda de destaque */
+    box-shadow: none; /* Remove a sombra do card */
+}
+
+.game::after {
+   display: none;
+}
+
+/*  "Quadrado" da arte removido */
+.art {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: none;
+}
+
+.art img {
+    width: 100%;
+    height: auto; 
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.7));
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.game:hover .art img {
+    transform: scale(1.08); /* Aumenta a logo um pouco no hover */
+    filter: drop-shadow(0 6px 16px rgba(0,0,0,0.8)) brightness(1.1); /* Sombra e brilho sutis */
+}
+
+/* * MUDANÇA AQUI: TEXTO CLARO E MAIS ALINHADO À LOGO
+ * A cor do texto principal é mantida.
+*/
+.caption {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    text-align: center; /* Centraliza o texto */
+    margin-top: -8px; /* Aproxima o texto da logo */
+}
+
+.hint {
+    font-size: .8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    display: inline-block;
+    margin-top: 6px;
+    text-align: center; /* Centraliza o hint */
+    width: 100%; /* Garante que o hint ocupa toda a largura para centralizar */
+}
+
+@media (max-width: 768px) {
+    body { padding: 16px; }
+    .into-hero { padding: 28px 18px 48px; }
+}
+/* 1. MOVE O TEXTO (H1 E SUBTITLE) PARA CIMA (MAIS PERTO DA LOGO) */
+
+.site-header h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: #fdfaf3;
+    letter-spacing: 0.04em;
+    
+    /* Ajuste de espaçamento "para cima": */
+    margin-top: 24px;  /* Espaço entre a logo SoulSync e o H1 */
+    margin-bottom: 8px; /* Espaço (pequeno) entre o H1 e o subtitle */
+}
+
+/* Regra corrigida para o .subtitle que agora está no .site-header */
+.site-header .subtitle {
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.5;
+
+    /* Ajuste de espaçamento "para cima": */
+    margin-top: 0; /* Remove espaço extra */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0; /* Remove espaço extra */
+}
+
+
+/* 2. MOVE OS LOGOS DOS JOGOS "PARA BAIXO" */
+
+.selector {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    /* Esta é a linha principal que empurra os logos para baixo */
+    margin-top: 72px; /* Aumenta o espaço entre o texto e os logos */
+}

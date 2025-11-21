@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Habilidades — Guia</title>
+  <link rel="stylesheet" href="../../assets/css/styleSekiro.css">
+</head>
+<body>
+
+  <!-- Header carregado via JS -->
+  <div id="header"></div>
+
+  <div class="container">
+    <!-- Sidebar carregada via JS -->
+    <div id="sidebar"></div>
+
+    <main class="content">
+        <header class="page-header">
+            <h1 class="title">Habilidades e Técnicas</h1>
+        </header>
+
+        <section class="boss-content-details">
+
+            <h2 id="overview">Visão Geral</h2>
+            <p>
+                As Habilidades e Árvores de Habilidades em <em>Sekiro: Shadows Die Twice</em> referem-se à progressão do personagem investindo <strong>Pontos de Habilidade</strong> para desbloquear Artes de Combate, Técnicas Shinobi e Habilidades Passivas (Latentes). Existem 5 árvores principais, além de técnicas que você pode adquirir via textos esotéricos.
+            </p>
+            
+            <p>
+                Algumas habilidades são passivas (efeito sempre presente), enquanto outras são ativas (Artes de Combate ativadas com L1+R1). Além disso, existem as Técnicas de Ninjutsu, usadas após um golpe mortal furtivo.
+            </p>
+
+            <h2 id="trees">Árvores de Habilidades</h2>
+            <div class="skill-trees-grid">
+                <a href="artes shinobi.html" class="skill-tree-card">
+                    <h3>Artes Shinobi</h3>
+                    <small>Furtividade e Mobilidade</small>
+                </a>
+                <a href="artes ashina.html" class="skill-tree-card">
+                    <h3>Artes Ashina</h3>
+                    <small>Combate de Espada e Postura</small>
+                </a>
+                <a href="artes prosteticas.html" class="skill-tree-card">
+                    <h3>Artes Prostéticas</h3>
+                    <small>Melhorias de Ferramentas</small>
+                </a>
+                <a href="artes do templo.html" class="skill-tree-card">
+                    <h3>Artes do Templo</h3>
+                    <small>Artes Marciais e Itens</small>
+                </a>
+                <a href="artes mushin.html" class="skill-tree-card">
+                    <h3>Artes Mushin</h3>
+                    <small>Técnicas Secretas Finais</small>
+                </a>
+            </div>
+
+            <h2 id="how-to">Como obter Pontos</h2>
+            <ul>
+                <li><strong>Ganho de XP:</strong> Derrotando inimigos e chefes.</li>
+                <li><strong>Redistribuir:</strong> Infelizmente, <strong>não é possível</strong> redistribuir seus pontos de habilidade em Sekiro. Escolha com sabedoria, embora no New Game+ você pode continuar ganhando pontos infinitamente.</li>
+            </ul>
+
+            <h2 id="table">Tabela de Habilidades Principais</h2>
+            <p>Abaixo estão algumas das habilidades essenciais encontradas nos Pergaminhos Esotéricos.</p>
+
+            <div class="skills-table-container">
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Árvore</th>
+                            <th>Efeito</th>
+                            <th>Pontos</th>
+                            <th>Requisito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-name">Mikiri Counter<br><small>(Contra-Ataque Mikiri)</small></td>
+                            <td class="col-tree">Shinobi</td>
+                            <td>Permite contra-atacar golpes de estocada (Perilous Attacks) pisando na arma do inimigo, causando dano massivo à postura.</td>
+                            <td class="col-points">2</td>
+                            <td>Nenhum</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Whirlwind Slash<br><small>(Corte Turbilhão)</small></td>
+                            <td class="col-tree">Shinobi</td>
+                            <td>Arte de Combate. Um ataque giratório que atinge múltiplos inimigos e causa dano mesmo se defendido.</td>
+                            <td class="col-points">1</td>
+                            <td>Nenhum</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Ichimonji</td>
+                            <td class="col-tree">Ashina</td>
+                            <td>Arte de Combate. Um corte vertical pesado. Causa alto dano de postura e recupera a sua própria postura.</td>
+                            <td class="col-points">2</td>
+                            <td>Nenhum</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Ascending Carp<br><small>(Carpa Ascendente)</small></td>
+                            <td class="col-tree">Ashina</td>
+                            <td>Passiva. Aumenta o dano infligido à postura do inimigo após um Desvio (Deflect) bem-sucedido.</td>
+                            <td class="col-points">2</td>
+                            <td>Ichimonji</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Breath of Life: Light<br><small>(Fôlego da Vida: Leve)</small></td>
+                            <td class="col-tree">Shinobi</td>
+                            <td>Passiva (Latente). Recupera um pouco de vitalidade ao executar um Golpe Mortal.</td>
+                            <td class="col-points">2</td>
+                            <td>Mikiri ou Whirlwind</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Chasing Slice<br><small>(Corte Perseguidor)</small></td>
+                            <td class="col-tree">Prostética</td>
+                            <td>Permite um ataque de espada com avanço rápido logo após usar uma ferramenta prostética (como Shuriken).</td>
+                            <td class="col-points">1</td>
+                            <td>Spinning Shuriken</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Grappling Hook Attack<br><small>(Ataque de Gancho)</small></td>
+                            <td class="col-tree">Prostética</td>
+                            <td>Permite atacar com a espada enquanto se lança com o gancho em direção a um inimigo.</td>
+                            <td class="col-points">1</td>
+                            <td>Nenhum</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">High Monk<br><small>(Monge Superior)</small></td>
+                            <td class="col-tree">Templo</td>
+                            <td>Arte de Combate. Inicia com chutes aéreos e desce cortando. Excelente contra ataques de rasteira.</td>
+                            <td class="col-points">4</td>
+                            <td>Senpou Leaping Kicks</td>
+                        </tr>
+                        <tr>
+                            <td class="col-name">Shadowrush<br><small>(Corrida das Sombras)</small></td>
+                            <td class="col-tree">Shinobi</td>
+                            <td>Arte Secreta. Uma estocada de longuíssimo alcance que, se conectar, permite pular sobre o inimigo.</td>
+                            <td class="col-points">6</td>
+                            <td>Shinobi Eyes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+  </div>
+
+  <!-- Footer carregado via JS -->
+  <div id="footer"></div>
+  
+  <script src="../../assets/js/include.js" data-include-base="../../"></script>
+</body>
+</html>
