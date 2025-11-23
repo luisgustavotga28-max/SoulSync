@@ -32,6 +32,7 @@ header {
     right: 0;
     z-index: 1000;
 }
+
 .logo { height: 100px; width: auto; object-fit: contain; margin: 0 40px; }
 
 /* container: sidebar + main */

@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".lore-image img, .feature-image img").forEach((imageEl) => {
     imageEl.addEventListener("click", () => {
-      const captionText = imageEl.closest(".lore-section")?.querySelector("h2")?.textContent;
+      const captionText = imageEl.closest(".lore-section")?.querySelector("h2")?.textContent || imageEl.alt || "";
       openLightbox(imageEl.src, imageEl.alt, captionText);
     });
 

@@ -1,0 +1,1480 @@
+/* Minimal CSS para IndexWukong - versão simples e limpa */
+
+:root {
+
+--text: #f5f5f5;
+
+--muted: #6b7280;
+
+--card: #23272f;
+
+--border: #333;
+
+}
+
+* { box-sizing: border-box; }
+
+body {
+
+margin: 0;
+
+font-family: 'Segoe UI', Arial, sans-serif;
+
+color: var(--text);
+
+background:
+
+linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)),
+
+url('../img/fundo.jpg') center/cover no-repeat fixed;
+
+}
+
+header {
+
+height: 70px;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding: 0 32px;
+
+background-color: rgba(35, 39, 47, 0.1);
+
+backdrop-filter: blur(10px);
+
+box-shadow: 0 2px 8px #0004;
+
+}
+
+.logo { height: 100px; width: auto; object-fit: contain; margin: 0 40px; }
+
+
+/* container: sidebar + main */
+
+.container {
+
+max-width: 1100px;
+
+margin: 40px auto;
+
+background: transparent;
+
+padding: 0;
+
+border-radius: 0;
+
+box-shadow: none;
+
+display: flex;
+
+gap: 32px;
+
+align-items: flex-start;
+
+}
+
+#footer {
+
+width: 100%;
+
+margin: 40px auto 0;
+
+}
+
+.sidebar {
+
+width: 300px;
+
+background: var(--card);
+
+border-radius: 0;
+
+padding: 18px 14px;
+
+box-sizing: border-box;
+
+min-height: 600px;
+
+position: relative;
+
+top: 0;
+
+height: auto;
+
+max-height: none;
+
+overflow: visible;
+
+}
+
+@media (max-width: 900px) {
+
+.container {
+
+flex-direction: column;
+
+}
+
+.sidebar {
+
+width: 100%;
+
+}
+
+#footer {
+
+margin: 20px;
+
+}
+
+}
+
+.sidebar h3 {
+
+color: #f5f5f5;
+
+margin: 6px 0 10px;
+
+font-size: 1.1em;
+
+font-weight: bold;
+
+text-align: center;
+
+}
+
+.search-box {
+
+display: flex;
+
+gap: 6px;
+
+margin-bottom: 18px;
+
+}
+
+.search-box input {
+
+flex: 1;
+
+padding: 7px 10px;
+
+border-radius: 4px;
+
+border: none;
+
+background: #181818;
+
+color: #f5f5f5;
+
+}
+
+.search-box button {
+
+background: #e0b000;
+
+color: #23272f;
+
+border: none;
+
+border-radius: 4px;
+
+padding: 0 10px;
+
+font-size: 1em;
+
+cursor: pointer;
+
+}
+
+.sidebar-section {
+
+margin-bottom: 22px;
+
+}
+
+.sidebar-section ul {
+
+list-style: none;
+
+padding: 0;
+
+margin: 0;
+
+}
+
+.sidebar-section ul li {
+
+margin-bottom: 7px;
+
+}
+
+.sidebar-section ul a {
+
+color: #f5f5f5;
+
+text-decoration: none;
+
+background-color: rgba(255, 255, 255, 0.05);
+
+border: 1px solid rgba(255, 255, 255, 0.1);
+
+backdrop-filter: blur(5px);
+
+display: block;
+
+padding: 7px 10px;
+
+border-radius: 4px;
+
+font-weight: 500;
+
+transition: background 0.2s, color 0.2s;
+
+border: 1px solid #23272f;
+
+}
+
+.sidebar-section ul a:hover {
+
+background: #e0b000;
+
+color: #23272f;
+
+}
+
+.quick-access {
+
+margin-bottom: 24px;
+
+}
+
+.quick-access-grid {
+
+display: grid;
+
+grid-template-columns: 1fr 1fr;
+
+gap: 8px;
+
+}
+
+.quick-access-grid a {
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+background-color: rgba(255, 255, 255, 0.05);
+
+border: 1px solid rgba(255, 255, 255, 0.05);
+
+backdrop-filter: blur(5px);
+
+color: #f5f5f5;
+
+text-decoration: none;
+
+font-weight: 500;
+
+padding: 10px 0;
+
+border-radius: 4px;
+
+font-size: 1em;
+
+transition: background 0.2s, color 0.2s;
+
+border: 1px solid #23272f;
+
+}
+
+.quick-access-grid a:hover {
+
+background: #e0b000;
+
+color: #23272f;
+
+}
+
+.content {
+
+flex: 1;
+
+padding: 32px 24px;
+
+}
+
+section {
+
+margin-bottom: 40px;
+
+}
+
+h2 {
+
+color: #e0b000;
+
+margin-top: 0;
+
+font-size: 1.5em;
+
+border-bottom: 1px solid #333;
+
+padding-bottom: 6px;
+
+margin-bottom: 18px;
+
+}
+
+
+@media(max-width: 900px) {
+
+.container { flex-direction: column; }
+
+.sidebar { position: static; height: auto; }
+
+}
+
+@media (max-width: 1000px) {
+
+.container {
+
+flex-direction: column;
+
+max-width: 98vw;
+
+padding: 12px;
+
+gap: 0;
+
+}
+
+.sidebar {
+
+width: 100%;
+
+min-height: unset;
+
+margin-bottom: 24px;
+
+}
+
+.content {
+
+padding-left: 0;
+
+}
+
+}
+
+
+.back-arrow:hover { color: #e0b000; }
+
+
+@media (min-width: 1001px) {
+
+.sidebar {
+
+position: fixed;
+
+left: 0;
+
+top: 70px; /* just below header */
+
+width: 300px;
+
+background-color: rgba(35, 39, 47, 0.1);
+
+backdrop-filter: blur(10px);
+
+height: calc(100vh - 70px);
+
+border-radius: 0;
+
+}
+
+.container {
+
+margin-left: 300px; /* leave space for the fixed sidebar */
+
+max-width: calc(100% - 300px - 64px);
+
+}
+
+}
+
+
+.sidebar::after {
+
+content: "";
+
+position: absolute;
+
+right: 0;
+
+top: 18%;
+
+bottom: 18%;
+
+width: 3px;
+
+background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.16) 100%);
+
+transform: skewY(-6deg) translateX(50%);
+
+border-radius: 1px;
+
+pointer-events: none;
+
+}
+
+
+/* ================================================= */
+
+/* ==== ESTILOS DA PÁGINA DE CHEFES (CORRIGIDOS) ==== */
+
+/* ================================================= */
+
+
+/* Cabeçalho específico da página de conteúdo */
+
+main.content .page-header {
+
+display: flex !important;
+
+flex-direction: column !important;
+
+align-items: center !important;
+
+justify-content: center !important;
+
+text-align: center !important;
+
+margin-bottom: 30px !important;
+
+border-bottom: 2px solid #d4af37 !important;
+
+padding-bottom: 20px !important;
+
+height: auto !important;
+
+border-top: none !important;
+
+border-left: none !important;
+
+border-right: none !important;
+
+}
+
+
+main.content .page-header .title {
+
+color: #d4af37;
+
+font-size: 2.5rem;
+
+letter-spacing: 4px;
+
+margin: 0;
+
+font-weight: 600;
+
+border: none !important;
+
+padding: 0 !important;
+
+margin-bottom: 5px !important;
+
+}
+
+
+main.content .page-header .subtitle {
+
+color: #f5f5f5;
+
+font-size: 1.2rem;
+
+font-weight: 300;
+
+border: none !important;
+
+padding: 0 !important;
+
+margin: 0 !important;
+
+position: static !important;
+
+}
+
+
+/* Galeria de Cards (Estilo Original Restaurado) */
+
+.boss-gallery {
+
+display: grid;
+
+/* Define colunas de 350px fixo */
+
+grid-template-columns: repeat(auto-fit, 350px);
+
+/* Centraliza os cards no contêiner */
+
+justify-content: center;
+
+gap: 30px;
+
+margin-top: 40px;
+
+}
+
+
+/* Card Individual (Estilo Original Restaurado) */
+
+.boss-image-container {
+
+background: rgba(20, 20, 20, 0.9);
+
+border-radius: 10px;
+
+overflow: hidden;
+
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+border: 1px solid #444;
+
+}
+
+
+.boss-image-container:hover {
+
+transform: translateY(-10px);
+
+box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3); /* Sombra dourada/vermelha */
+
+}
+
+
+/* Imagem do Card (Estilo Original Restaurado) */
+
+.boss-image {
+
+width: 100%;
+
+height: 250px; /* Altura fixa original */
+
+object-fit: cover;
+
+object-position: center;
+
+border-bottom: 3px solid #8B0000;
+
+}
+
+
+.boss-info {
+
+padding: 20px;
+
+}
+
+
+.boss-name {
+
+color: #d4af37;
+
+font-size: 1.5rem;
+
+margin-bottom: 10px;
+
+border-bottom: 1px solid #444;
+
+padding-bottom: 8px;
+
+}
+
+
+.boss-details {
+
+color: #e0e0e0;
+
+line-height: 1.6;
+
+}
+
+
+.boss-detail-item {
+
+margin-bottom: 8px;
+
+display: flex;
+
+align-items: center;
+
+}
+
+
+.boss-detail-item strong {
+
+color: #d4af37;
+
+min-width: 120px;
+
+display: inline-block;
+
+}
+
+
+.difficulty {
+
+display: inline-block;
+
+padding: 2px 8px;
+
+border-radius: 12px;
+
+font-size: 0.8rem;
+
+font-weight: bold;
+
+margin-left: 10px;
+
+}
+
+.difficulty-easy { background: #2e7d32; color: white; }
+
+.difficulty-medium { background: #f57c00; color: white; }
+
+.difficulty-hard { background: #c62828; color: white; }
+
+.difficulty-very-hard { background: #6a1b9a; color: white; }
+
+.difficulty-legendary { background: #4b0082; color: white; }
+
+
+.navigation {
+
+text-align: center;
+
+margin: 40px 0 20px;
+
+}
+
+
+.nav-button {
+
+display: inline-block;
+
+background: linear-gradient(45deg, #8B0000, #a52a2a);
+
+color: white;
+
+padding: 12px 25px;
+
+text-decoration: none;
+
+border-radius: 5px;
+
+margin: 0 10px;
+
+transition: all 0.3s ease;
+
+font-weight: bold;
+
+border: 1px solid #d4af37;
+
+}
+
+
+.nav-button:hover {
+
+background: linear-gradient(45deg, #a52a2a, #8B0000);
+
+transform: translateY(-2px);
+
+box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+
+}
+
+
+@media (max-width: 768px) {
+
+.boss-detail-item {
+
+flex-direction: column;
+
+align-items: flex-start;
+
+}
+
+.boss-detail-item strong {
+
+min-width: auto;
+
+margin-bottom: 2px;
+
+}
+
+} 
+
+/* Seções específicas da página Sekiro */
+/* Seções específicas da página Sekiro */
+.hero {
+    background: none;      /* Remove o fundo e a imagem do quadrado */
+    box-shadow: none;      /* Remove a sombra do quadrado */
+    border: none;          /* Remove bordas se houver */
+    padding: 0;            /* Remove o espaçamento interno extra */
+    border-radius: 0;      /* Remove as pontas arredondadas */
+    
+    /* Mantém a cor do texto e margem */
+    color: #f5f5f5;
+    margin-bottom: 30px;
+}
+
+.info-grid {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+gap: 20px;
+
+margin-bottom: 30px;
+
+}
+
+.info-card {
+
+background: rgba(15, 15, 15, 0.75);
+
+border: 1px solid #333;
+
+border-left: 4px solid #d4af37;
+
+padding: 20px;
+
+border-radius: 6px;
+
+}
+
+.info-card h3 {
+
+margin-bottom: 10px;
+
+color: #d4af37;
+
+font-size: 1.1rem;
+
+}
+
+.feature-list li {
+
+margin-bottom: 8px;
+
+}
+
+.timeline {
+
+border-left: 2px solid #d4af37;
+
+padding-left: 20px;
+
+}
+
+.timeline-item {
+
+margin-bottom: 20px;
+
+position: relative;
+
+}
+
+.timeline-item::before {
+
+content: "";
+
+width: 12px;
+
+height: 12px;
+
+background: #d4af37;
+
+border-radius: 50%;
+
+position: absolute;
+
+left: -27px;
+
+top: 4px;
+
+}
+
+.focus-box {
+
+background: rgba(18, 18, 18, 0.8);
+
+border: 1px solid #3a3a3a;
+
+border-radius: 6px;
+
+padding: 25px;
+
+margin-bottom: 30px;
+
+}
+
+.gallery, .image-gallery{
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+
+gap: 15px;
+
+}
+
+.gallery img, .image-gallery img {
+
+width: 100%;
+
+height: 350px;
+
+object-fit: cover;
+
+border-radius: 6px;
+
+border: 2px solid #444;
+
+transition: transform 0.3s ease, border-color 0.3s ease;
+
+}
+
+.gallery img:hover {
+
+transform: scale(1.03);
+
+border-color: #d4af37;
+
+}
+
+.page-navigation {
+
+background: rgba(0, 0, 0, 0.2);
+
+padding: 15px;
+
+border-radius: 5px;
+
+margin-bottom: 30px;
+
+border-left: 3px solid #d4af37;
+
+}
+
+.page-navigation a {
+
+color: #d4af37;
+
+font-weight: bold;
+
+margin-right: 10px;
+
+text-decoration: none;
+
+}
+
+.page-navigation a:hover {
+
+text-decoration: underline;
+
+}
+
+.footer {
+
+margin-top: 40px;
+
+max-width: 1100px;
+
+margin-left: auto;
+
+margin-right: auto;
+
+padding: 30px 25px;
+
+background: rgba(0, 0, 0, 0.7);
+
+border-top: 1px solid var(--border);
+
+box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.4);
+
+}
+
+.footer-content {
+
+display: flex;
+
+justify-content: space-between;
+
+gap: 30px;
+
+flex-wrap: wrap;
+
+}
+
+.footer-section {
+
+min-width: 200px;
+
+}
+
+.footer-section h4 {
+
+color: #d4af37;
+
+margin-bottom: 10px;
+
+}
+
+.footer-section p {
+
+color: var(--muted);
+
+margin: 0;
+
+}
+
+.footer-section ul {
+
+list-style: none;
+
+padding: 0;
+
+margin: 0;
+
+}
+
+.footer-section li {
+
+margin-bottom: 6px;
+
+}
+
+.footer-section a {
+
+color: #f5f5f5;
+
+text-decoration: none;
+
+transition: color 0.2s ease;
+
+}
+
+.footer-section a:hover {
+
+color: #d4af37;
+
+}
+
+.footer-bottom {
+
+margin-top: 20px;
+
+text-align: center;
+
+color: var(--muted);
+
+font-size: 0.9rem;
+
+}
+
+
+.boss-strategy {
+
+background: rgba(139, 0, 0, 0.1);
+
+padding: 15px;
+
+border-radius: 5px;
+
+margin-top: 15px;
+
+border-left: 3px solid #d4af37;
+
+}
+
+
+/* Estilos específicos para a página de chefes */
+
+.boss-gallery {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, 350px);
+
+justify-content: center;
+
+gap: 30px;
+
+margin-top: 40px;
+
+}
+
+.boss-link {
+
+text-decoration: none;
+    color: inherit;
+    /* NOVAS PROPRIEDADES: */
+    display: flex;
+    height: 100%;
+
+}
+
+.boss-image-container {
+
+background: rgba(20, 20, 20, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+    
+    /* NOVAS PROPRIEDADES PARA IGUALAR ALTURA: */
+    height: 100%;            /* Força o card a ocupar toda a altura disponível */
+    display: flex;           /* Habilita flexbox interno */
+    flex-direction: column;
+
+}
+
+.boss-image-container:hover {
+
+transform: translateY(-10px);
+
+box-shadow: 0 15px 35px rgba(139, 0, 0, 0.4);
+
+}
+
+.boss-image {
+
+width: 100%;
+
+height: 250px;
+
+object-fit: cover;
+
+border-bottom: 3px solid #8B0000;
+
+}
+
+.boss-info {
+
+padding: 20px;
+    flex-grow: 1; /* Faz a área de texto crescer para ocupar espaços vazios */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.boss-name {
+
+color: #d4af37;
+
+font-size: 1.5rem;
+
+margin-bottom: 10px;
+
+border-bottom: 1px solid #444;
+
+padding-bottom: 8px;
+
+}
+
+.boss-details {
+
+color: #e0e0e0;
+
+line-height: 1.6;
+
+}
+
+.boss-detail-item {
+
+margin-bottom: 8px;
+
+display: flex;
+
+align-items: center;
+
+}
+
+.boss-detail-item strong {
+
+color: #d4af37;
+
+min-width: 120px;
+
+display: inline-block;
+
+}
+
+.difficulty {
+
+display: inline-block;
+
+padding: 2px 8px;
+
+border-radius: 12px;
+
+font-size: 0.8rem;
+
+font-weight: bold;
+
+margin-left: 10px;
+
+}
+
+.difficulty-easy { background: #2e7d32; color: white; }
+
+.difficulty-medium { background: #f57c00; color: white; }
+
+.difficulty-hard { background: #c62828; color: white; }
+
+.difficulty-very-hard { background: #6a1b9a; color: white; }
+
+.navigation {
+
+text-align: center;
+
+margin: 40px 0 20px;
+
+}
+
+.nav-button {
+
+display: inline-block;
+
+background: linear-gradient(45deg, #8B0000, #a52a2a);
+
+color: white;
+
+padding: 12px 25px;
+
+text-decoration: none;
+
+border-radius: 5px;
+
+margin: 0 10px;
+
+transition: all 0.3s ease;
+
+font-weight: bold;
+
+border: 1px solid #d4af37;
+
+}
+
+.nav-button:hover {
+
+background: linear-gradient(45deg, #a52a2a, #8B0000);
+
+transform: translateY(-2px);
+
+box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+
+}
+
+.page-header {
+
+text-align: center;
+
+margin-bottom: 30px;
+
+border-bottom: 2px solid #d4af37;
+
+padding-bottom: 20px;
+
+}
+
+.title {
+
+color: #d4af37;
+
+font-size: 2.5rem;
+
+letter-spacing: 4px;
+
+margin: 0;
+
+}
+
+.subtitle {
+
+color: #f5f5f5;
+
+font-size: 1.2rem;
+
+font-weight: 300;
+
+margin: 5px 0 0;
+
+}
+
+@media (max-width: 768px) {
+
+.boss-detail-item {
+
+flex-direction: column;
+
+align-items: flex-start;
+
+}
+
+.boss-detail-item strong {
+
+min-width: auto;
+
+margin-bottom: 2px;
+
+}
+
+} 
+/* ========================================= */
+/* ==== ESTILOS DAS TABELAS DE CHEFES ====== */
+/* ========================================= */
+
+.boss-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0 40px 0;
+    background-color: rgba(18, 18, 18, 0.85); /* Fundo escuro semi-transparente */
+    border: 1px solid #444; /* Borda externa cinza sutil */
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.boss-table th, 
+.boss-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #444; /* Linhas divisórias */
+    line-height: 1.5;
+}
+
+/* Cabeçalho da Tabela (Ataque / Contra-ataque) */
+.boss-table th {
+    background-color: rgba(10, 10, 10, 0.95); /* Cabeçalho mais escuro */
+    color: #d4af37; /* Cor Dourada/Laranja (tema Sekiro) */
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    border-bottom: 2px solid #d4af37; /* Linha dourada embaixo do título */
+}
+
+/* Estilo das células de texto */
+.boss-table td {
+    color: #e0e0e0; /* Texto claro */
+    vertical-align: top;
+}
+
+/* Destaque na primeira coluna (Nome do Ataque) */
+.boss-table td:first-child {
+    font-weight: bold;
+    color: #f5f5f5;
+    width: 30%; /* Garante que o nome do ataque não fique muito espremido */
+}
+
+/* Efeito zebrado (linhas alternadas ficam levemente mais claras) */
+.boss-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Efeito ao passar o mouse na linha */
+.boss-table tr:hover {
+    background-color: rgba(212, 175, 55, 0.1); /* Brilho dourado sutil */
+    transition: background-color 0.2s ease;
+}
+
+/* Ajuste para telas pequenas (Mobile) */
+@media (max-width: 768px) {
+    .boss-table th, .boss-table td {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .boss-table td:first-child {
+        width: auto; /* Remove largura fixa no mobile */
+    }
+}
+
+.tool-main-img {
+    /* Permite ficar lado a lado */
+    display: inline-block;
+    
+    /* Remove a margem automática antiga e dá espaço entre elas */
+    margin: 10px;
+    
+    /* DEFINE O TAMANHO PEQUENO E IGUAL */
+    width: 390px;  /* Largura fixa */
+    height: 290px; /* Altura fixa */
+    
+    /* Garante que a imagem preencha o quadrado sem distorcer */
+    object-fit: cover;
+    
+    /* Estilos visuais mantidos */
+    border-bottom: 3px solid #d4af37;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+}
+
+/* Efeito de Hover opcional para ficar interativo */
+.tool-main-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
+}
+
+.lore-quote {
+    font-style: italic;
+    color: #ccc;
+    border-left: 4px solid #d4af37; /* Linha de destaque à esquerda */
+    padding-left: 15px;
+    margin: 20px 0;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    padding: 15px;
+    border-radius: 0 4px 4px 0;
+}      
+
+.tool-main-img {
+    /* Permite ficar lado a lado */
+    display: inline-block;
+    
+    /* Remove a margem automática antiga e dá espaço entre elas */
+    margin: 10px;
+    
+    /* DEFINE O TAMANHO PEQUENO E IGUAL */
+    width: 250px;  /* Largura fixa */
+    height: 160px; /* Altura fixa */
+    
+    /* Garante que a imagem preencha o quadrado sem distorcer */
+    object-fit: cover;
+    
+    /* Estilos visuais mantidos */
+    border-bottom: 3px solid #d4af37;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #444;
+}
+
+/* Efeito de Hover opcional para ficar interativo */
+.tool-main-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.3);
+}
+
+/* ... existing code ... */
+/* === Estilos da Página de Habilidades === */
+
+/* Grid para os tipos de Habilidades (Árvores) */
+.skill-trees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.skill-tree-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #f5f5f5;
+    display: block; /* Garante que o link ocupe o espaço do card */
+}
+
+.skill-tree-card:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #d4af37;
+    transform: translateY(-5px);
+}
+
+.skill-tree-card h3 {
+    color: #d4af37;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.skill-tree-card small {
+    display: block;
+    margin-top: 5px;
+    color: #aaa;
+}
+
+/* Estilo da Tabela de Habilidades (Tema Escuro/Dourado) */
+.skills-table-container {
+    overflow-x: auto; /* Permite rolagem horizontal em celulares */
+    margin-top: 30px;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1a1a1a; /* Fundo escuro da tabela */
+    font-size: 0.95rem;
+    border: 1px solid #333;
+}
+
+.skills-table th {
+    background-color: #0f0f0f;
+    color: #d4af37; /* Texto dourado no cabeçalho */
+    padding: 15px;
+    text-align: left;
+    border-bottom: 2px solid #444;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.skills-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+    vertical-align: top;
+}
+
+.skills-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* Efeito hover na linha */
+}
+
+/* Cores para colunas específicas */
+.col-name { 
+    color: #fff !important; 
+    font-weight: bold; 
+}
+
+.col-tree { 
+    color: #a0a0a0; 
+    font-style: italic; 
+}
+
+.col-points { 
+    text-align: center; 
+    font-weight: bold; 
+    color: #d4af37 !important; 
+}

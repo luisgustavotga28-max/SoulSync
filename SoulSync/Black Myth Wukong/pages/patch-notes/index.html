@@ -3,114 +3,218 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Black Myth: Wukong – Patch Notes</title>
-  <base href="../../">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Finais - Guia</title>
+  <link rel="stylesheet" href="../../assets/css/styleSekiro.css">
 </head>
 <body>
 
+  <!-- Header carregado via JS -->
   <div id="header"></div>
 
   <div class="container">
-
+    <!-- Sidebar carregada via JS -->
     <div id="sidebar"></div>
 
-    <main class="content patch-notes lore-page">
-      <h1>Atualizações e Patch Notes</h1>
-      <p class="page-lead">Em vez de simples listas, cada atualização de <em>Black Myth: Wukong</em> ganhou um pequeno registro histórico, como acontece com as crônicas da página de lore. Explore as notas abaixo para entender o clima de cada versão, seus objetivos narrativos e os efeitos práticos sobre a jornada do Predestinado.</p>
+    <main class="content">
+      <header class="page-header">
+        <h1 class="title">Atualizações e Patch Notes</h1>
+      </header>
 
+      <section class="patch-story lore-section">
+  <div class="patch-story-text lore-text">
+    <h2>Ver. 1.0.20.22023 <small>(16 out 2025)</small></h2>
+
+    <p>A atualização de outubro trouxe uma série de melhorias de desempenho, estabilidade e ajustes de combate, além da integração do AMD FSR4 e novas otimizações de renderização. Também foram feitos reparos significativos em chefes e correções em sistemas importantes, como localização e super-resolução.</p>
+
+    <h3>Informações importantes antes da atualização</h3>
+    <ul>
+      <li>Tamanho da atualização: <strong>5,7 GB</strong>. Devido ao método de distribuição da plataforma, é necessário espaço livre adicional para arquivos temporários.</li>
+      <li>Se você usa mods, pode ocorrer falha ao iniciar o jogo, erros de carregamento ou incompatibilidade. A recomendação oficial é <strong>desinstalar mods e verificar a integridade dos arquivos</strong> antes de jogar.</li>
+      <li>Caso o tamanho da atualização pareça anormal ou o jogo trave durante o carregamento, consulte o FAQ de instalação/atualização no site oficial.</li>
+      <li>Esta versão pode exigir <strong>recompilação de sombreadores</strong>. Se ocorrer travamento durante o processo, reinicie o jogo ou pule a recompilação.</li>
+    </ul>
+
+    <div class="patch-highlights">
+      <h3>Melhorias na experiência</h3>
+      <ul>
+        <li><strong>Chefes</strong>: combate aprimorado contra o Rei Yaoguai “Shigandang Gigante”.</li>
+        <li><strong>Interação</strong>: o Mapa do Viajante agora orienta corretamente o Predestinado ao Santuário de Guardião antes de adquirir o item Mapa do Viajante.</li>
+        <li><strong>Interface</strong>: selo “Apagado” na tela de “Carregar Jornada” agora mais legível.</li>
+      </ul>
+
+      <h3>Desempenho</h3>
+      <ul>
+        <li><strong>AMD FSR4 integrado</strong>. Disponível após atualizar drivers e habilitar o recurso no painel da GPU.</li>
+        <li><strong>Modo Compatível aprimorado</strong>: desativa temporariamente Ray Tracing, Frame Generation e algumas super-resoluções para evitar falhas ligadas a drivers/sistema.</li>
+        <li>Ajustes nos presets gráficos padrão para diversas GPUs.</li>
+        <li>Iluminação Global no modo “Baixa” agora mais próxima da configuração “Alta”.</li>
+        <li>Melhorias gerais de CPU, renderização, uso de memória e desfoque de movimento (menos serrilhamento ao mover a câmera).</li>
+      </ul>
+
+      <h3>Localização</h3>
+      <ul>
+        <li>Idioma <strong>tcheco</strong> adicionado.</li>
+      </ul>
+
+      <h3>Correções de erros</h3>
+      <ul>
+        <li><strong>Chefes</strong>:
+          <ul>
+            <li>Corrigido erro que deixava o chefe “Por Cima e Por Baixo” invencível em certas condições.</li>
+            <li>Bola de ferro agora exibe corretamente durante a batalha contra “Por Cima e Por Baixo”.</li>
+          </ul>
+        </li>
+
+        <li><strong>Desempenho</strong>:
+          <ul>
+            <li>Corrigida falha em que XeSS 2.0 não ativava geração de quadros em alguns monitores.</li>
+            <li>Corrigido travamento ao abrir o jogo com DLSS 4 + Ray Tracing habilitados simultaneamente.</li>
+            <li>Correções de renderização no NXSR, eliminando borrões e oscilação da tela; qualidade geral aprimorada.</li>
+          </ul>
+        </li>
+
+        <li><strong>Localização</strong>:
+          <ul>
+            <li>Correção de sobreposição de texto na interface de “Fazer Tônico” em alguns idiomas.</li>
+            <li>Ajustes de dublagem e legendas em diversas cenas.</li>
+            <li>Correções em textos mal localizados nas Configurações.</li>
+            <li>Correções de tradução, grafia, capitalização e terminologia em múltiplos idiomas.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+      <!-- =============================== -->
+      <!-- PATCH 1.0.16.18901 – 17 ABR 2025 -->
+      <!-- =============================== -->
       <section class="patch-story lore-section">
         <div class="patch-story-text lore-text">
           <h2>Ver. 1.0.16.18901 <small>(17 abr 2025)</small></h2>
-          <p>O ciclo de abril trouxe um patch pensado para a comunidade global. A equipe adicionou o idioma tailandês e abriu a caixa de ferramentas dos PCs, habilitando NVIDIA DLSS 4.0 e Intel XeSS 2.0 com geração de quadros. A promessa era clara: manter o espetáculo visual intacto, mesmo enquanto o destino do Escolhido se desenrola em 120 fps.</p>
-          <p>Nos bastidores, o time também varreu o sistema de combos. A falha que interrompia o segundo golpe de um Combo Variado após certas esquivas foi finalmente corrigida, devolvendo fluidez aos mestres da esquiva perfeita.</p>
+          <p>O ciclo de abril trouxe um patch pensado para a comunidade global. A equipe adicionou o idioma tailandês e abriu a caixa de ferramentas dos PCs, habilitando NVIDIA DLSS 4.0 e Intel XeSS 2.0 com geração de quadros. A promessa era clara: manter o espetáculo visual intacto, mesmo enquanto o destino do Escolhido se desenrola em 120 fps.</p>
+          <p>Nos bastidores, o time também revisou o sistema de combos. A falha que interrompia o segundo golpe de um Combo Variado após certas esquivas foi finalmente corrigida, devolvendo fluidez aos mestres da esquiva perfeita.</p>
+          
           <div class="patch-highlights">
             <h3>Destaques rápidos</h3>
             <ul>
               <li>Idioma tailandês liberado em <strong>Configurações &gt; Idioma</strong>.</li>
-              <li>DLSS 4.0 com Multi-Frame Generation ativo para GPUs NVIDIA (PC).</li>
-              <li>XeSS 2.0 + Frame Generation Intel direto no menu gráfico (PC).</li>
+              <li>DLSS 4.0 com Multi-Frame Generation para GPUs NVIDIA (PC).</li>
+              <li>XeSS 2.0 + Frame Generation Intel agora disponível no menu gráfico (PC).</li>
               <li>Combo Variado não trava mais após Esquiva/Esquiva Perfeita.</li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- =============================== -->
+      <!-- PATCH 1.0.14.17737 – 20 FEV 2025 -->
+      <!-- =============================== -->
       <section class="patch-story lore-section">
         <div class="patch-story-text lore-text">
           <h2>Ver. 1.0.14.17737 <small>(20 fev 2025)</small></h2>
-          <p>Esta atualização foi tratada internamente como uma limpeza espiritual: chefes da Provação das Lendas ganharam ajustes cirúrgicos para evitar bugs bizarros (Yellowbrow invisível? Nunca mais) e a cartografia do Journeyer’s Chart voltou a apontar com precisão o caminho do Predestinado.</p>
-          <p>No console, o modo Qualidade do PS5 recebeu tuning fino para eliminar borrões durante efeitos de distorção, enquanto os PCs experimentaram o novo NXSR, um método experimental de super resolução. Até os atalhos de teclado receberam carinho com a correção do binding da tecla L.</p>
+          <p>Esta atualização foi tratada internamente como uma limpeza espiritual: chefes da Provação das Lendas receberam ajustes cirúrgicos para evitar bugs peculiares (Yellowbrow invisível? Nunca mais) e a cartografia do Journeyer’s Chart voltou a apontar corretamente o caminho do Predestinado.</p>
+          <p>No PS5, o modo Qualidade recebeu ajustes para eliminar borrões em efeitos de distorção, enquanto nos PCs surgiu o novo NXSR, um método experimental de super-resolução. Até os atalhos de teclado receberam carinho com a correção do binding da tecla L.</p>
+          
           <div class="patch-highlights">
             <h3>Destaques rápidos</h3>
             <ul>
-              <li>Yellowbrow e Erlang comportados no Gauntlet of Legends.</li>
-              <li>Journeyer’s Chart: portões, marcadores e mapa funcionam.</li>
-              <li>Skills do Escolhido e Soaks recebem nova calibragem.</li>
-              <li>NXSR nos PCs; modo Qualidade e distorções polidas no PS5.</li>
-              <li>Interface do Challenge com textos, ícones e atalhos corrigidos.</li>
+              <li>Yellowbrow e Erlang corrigidos no Gauntlet of Legends.</li>
+              <li>Journeyer’s Chart com portões, marcadores e mapa funcionando.</li>
+              <li>Skills do Escolhido e Soaks recalibrados.</li>
+              <li>NXSR nos PCs; modo Qualidade aprimorado no PS5.</li>
+              <li>Interface do Challenge com texto, ícones e atalhos corrigidos.</li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- =============================== -->
+      <!-- PATCH 1.0.13.16669 – 14 DEZ 2024 -->
+      <!-- =============================== -->
       <section class="patch-story lore-section">
         <div class="patch-story-text lore-text">
           <h2>Ver. 1.0.13.16669 <small>(14 dez 2024)</small></h2>
-          <p>Dezembro marcou o maior reforço de conteúdo desde o lançamento. O patch estreou o modo <strong>Challenge</strong>, dividindo-se em Return of Rivals e Gauntlet of Legends — arenas que permitem refazer chefes, aplicar maldições personalizadas e conquistar armas exclusivas como Qing Mallet, Fanged Cyan Staff e Leeching Centipede Staff.</p>
-          <p>O Journeyer’s Chart passou a registrar cada região com carinho de cartógrafo celestial, enquanto o conjunto Armor Set of Opulence celebrou o Ano Novo Chinês dentro do jogo. Até trilha sonora ganhou um aplicativo dedicado, transformando o menu em jukebox mítica.</p>
+          <p>Dezembro marcou o maior reforço de conteúdo desde o lançamento. O patch estreou o modo <strong>Challenge</strong>, dividido em Return of Rivals e Gauntlet of Legends — arenas que permitem refazer chefes, aplicar maldições personalizadas e conquistar armas exclusivas como Qing Mallet, Fanged Cyan Staff e Leeching Centipede Staff.</p>
+          <p>O Journeyer’s Chart passou a registrar cada região com detalhes, enquanto o conjunto Armor Set of Opulence celebrou o Ano Novo Chinês dentro do jogo. Até mesmo a trilha sonora ganhou um aplicativo dedicado, transformando o menu em uma jukebox mítica.</p>
+          
           <div class="patch-highlights">
             <h3>Destaques rápidos</h3>
             <ul>
-              <li>Challenge abre após zerar: Return of Rivals + Gauntlet of Legends.</li>
-              <li>Recompensas novas: Qing Mallet, Fanged Cyan, Leeching Centipede e itens rituais.</li>
-              <li>Journeyer’s Chart traz mapas colecionáveis por território.</li>
-              <li>Armor Set of Opulence chega via Trailblazer’s Gift.</li>
+              <li>Modo Challenge desbloqueado após zerar: Return of Rivals + Gauntlet of Legends.</li>
+              <li>Novas recompensas: Qing Mallet, Fanged Cyan Staff, Leeching Centipede Staff e itens rituais.</li>
+              <li>Journeyer’s Chart adiciona mapas colecionáveis por território.</li>
+              <li>Armor Set of Opulence distribuído via Trailblazer’s Gift.</li>
               <li>Soundtrack Selection disponível como app musical ingame.</li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- =============================== -->
+      <!-- PATCH 1.0.9.15179 – 23 SET 2024 -->
+      <!-- =============================== -->
       <section class="patch-story lore-section">
         <div class="patch-story-text lore-text">
           <h2>Ver. 1.0.9.15179 <small>(23 set 2024)</small></h2>
-          <p>À medida que o primeiro mês pós-lançamento avançava, o time da Game Science dedicou-se aos alicerces: crashes em conquistas e checagens de SO/driver foram sanados, garantindo que a aventura não fosse interrompida por janelas do sistema.</p>
-          <p>A lista de ajustes inclui combates contra mestres como Hundred-Eyed Daoist Master e Yellow Loong, buffs em equipamentos como Spikeshaft Staff e no conjunto Insect, além de reparos em talentos (Rock Solid Deflection voltou a bloquear como prometido). Recursos de progressão também foram revisados para que itens raros como “Fine Gold Thread” e “Bodhisattva's Left Hand” pudessem ser reconquistados.</p>
+          <p>À medida que o primeiro mês pós-lançamento avançava, o time da Game Science dedicou-se aos alicerces: crashes em conquistas e checagens de SO/driver foram corrigidos, garantindo que a aventura não fosse interrompida por janelas inesperadas do sistema.</p>
+          <p>A lista de ajustes inclui combates refinados contra mestres como Hundred-Eyed Daoist Master e Yellow Loong, buffs em equipamentos como Spikeshaft Staff e no conjunto Insect, além de reparos em talentos como <em>Rock Solid Deflection</em>. Recursos de progressão também foram revisados para que itens raros como <em>Fine Gold Thread</em> e <em>Bodhisattva's Left Hand</em> pudessem ser obtidos novamente.</p>
+          
           <div class="patch-highlights">
             <h3>Destaques rápidos</h3>
             <ul>
-              <li>Crashes e conquistas bugadas deixam de travar a progressão.</li>
-              <li>Launcher agora confere sistema operacional e drivers automaticamente.</li>
-              <li>Confrontos com Hundred-Eyed, Yellow Loong e cia. afinados.</li>
-              <li>Itens raros como Fine Gold Thread e Bodhisattva’s Left Hand recuperáveis.</li>
-              <li>Línguas, vozes e legendas passam por revisão ampla.</li>
+              <li>Crashes e conquistas bugadas corrigidos.</li>
+              <li>Launcher agora verifica sistema operacional e drivers automaticamente.</li>
+              <li>Combates contra Hundred-Eyed, Yellow Loong e outros refinados.</li>
+              <li>Itens como Fine Gold Thread e Bodhisattva’s Left Hand reobteníveis.</li>
+              <li>Idiomas, vozes e legendas revisados.</li>
             </ul>
           </div>
         </div>
       </section>
 
+      <!-- =============================== -->
+      <!-- PATCH 1.0.8.14860 – 29 AGO 2024 -->
+      <!-- =============================== -->
       <section class="patch-story lore-section">
         <div class="patch-story-text lore-text">
           <h2>Ver. 1.0.8.14860 <small>(29 ago 2024)</small></h2>
-          <p>O primeiro grande update após o lançamento mirou exatamente onde doía: crashes ligados ao FSR, ao Ray Tracing e a batalhas específicas. As posturas do protagonista — incluindo mudanças rápidas e Whirling Thrusts — foram revisadas para que atributos e hitboxes refletissem fielmente o que o jogador via na tela.</p>
-          <p>Paralelamente, inimigos como Lingxuzi e Captain Wise-Voice receberam rebalanceamentos e correções de IA, e a equipe de localização aproveitou para acertar letras de músicas, legendas dinâmicas e layouts de interface. Foi o patch que alinhou o palco antes das grandes estreias seguintes.</p>
+          <p>O primeiro grande update pós-lançamento mirou exatamente onde doía: crashes ligados ao FSR, ao Ray Tracing e a batalhas específicas. As posturas do protagonista — incluindo mudanças rápidas e <em>Whirling Thrusts</em> — foram revisadas para que atributos e hitboxes refletissem fielmente o que o jogador via na tela.</p>
+          <p>Inimigos como Lingxuzi e Captain Wise-Voice receberam ajustes de IA e rebalanceamentos, e a equipe de localização retrabalhou letras de músicas, legendas dinâmicas e layouts da interface. Foi o patch que alinhou o palco para as grandes atualizações seguintes.</p>
+          
           <div class="patch-highlights">
             <h3>Destaques rápidos</h3>
             <ul>
-              <li>FSR, Ray Tracing e batalhas críticas deixam de derrubar o jogo.</li>
-              <li>Posturas, Whirling Thrusts e mudanças rápidas seguindo os atributos corretos.</li>
+              <li>FSR, Ray Tracing e batalhas críticas deixam de travar o jogo.</li>
+              <li>Posturas, Whirling Thrusts e mudanças rápidas com atributos corrigidos.</li>
               <li>Lingxuzi, Captain Wise-Voice e outros Yaoguai reequilibrados.</li>
-              <li>Localização, legendas cantadas e layout da UI retrabalhados.</li>
+              <li>Localização, legendas cantadas e UI revisadas.</li>
             </ul>
           </div>
         </div>
       </section>
+
+      <!-- =============================== -->
+      <!-- NOTAS COMPLEMENTARES (OPCIONAL) -->
+      <!-- =============================== -->
+      <section class="patch-story lore-section">
+        <div class="patch-story-text lore-text">
+          <h2>Notas Complementares (Extras Opcionais)</h2>
+          <p>• Em 2025, a Game Science confirmou que trabalha em novos modos opcionais e melhorias de acessibilidade.  
+          • Um patch interno (não numerado oficialmente) melhorou carregamento de texturas em áreas com neblina densa.  
+          • Melhorias contínuas no Gauntlet of Legends adicionaram novos mutadores de desafio.  
+          • Pequenos ajustes de estabilidade foram feitos para suporte total ao Windows 11 24H2.</p>
+        </div>
+      </section>
+
     </main>
   </div>
 
+  <!-- Footer carregado via JS -->
   <div id="footer"></div>
 
-  <script src="assets/js/include.js"></script>
+  <script src="../../assets/js/include.js" data-include-base="../../"></script>
+  <script src="../../assets/js/lightbox.js"></script>
 </body>
 </html>
