@@ -1,0 +1,160 @@
+require('dotenv').config();
+const express = require('express');
+const mariadb = require('mariadb');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cors = require('cors');
+
+const app = express();
+app.use(express.json());
+app.use(cors()); // Permite que seu site HTML acesse o servidor
+
+// --- CONEXÃO COM O BANCO DE DADOS (SoulSync) ---
+const pool = mariadb.createPool({
+    host: 'localhost', 
+    user: 'root', 
+    password: 'sua_senha_root', // <--- IMPORTANTE: Coloque sua senha do MariaDB aqui
+    database: 'SoulSync',       // Nome exato do banco no seu backup
+    connectionLimit: 5
+});
+
+const SECRET_KEY = "sekiro_shadows_die_twice_secret"; // Chave para assinar os tokens de login
+
+// --- ROTAS DA API ---
+
+// 1. Rota de Cadastro
+app.post('/api/register', async (req, res) => {
+    const { username, email, password } = req.body;
+    let conn;
+    try {
+        // Criptografa a senha antes de salvar
+        const hashedPassword = await bcrypt.hash(password, 10);
+        conn = await pool.getConnection();
+        
+        // Verifica se o email já existe na tabela 'usuarios'
+        const exists = await conn.query("SELECT usuario_id FROM usuarios WHERE email = ?", [email]);
+        if (exists.length > 0) return res.status(400).json({ error: "Email já cadastrado" });
+
+        // Insere o novo usuário
+        // Nota: cargo_id_fk = 2 é 'Usuário Padrão' conforme seu banco
+        await conn.query(
+            "INSERT INTO usuarios (nome_usuario, email, senha_hash, cargo_id_fk) VALUES (?, ?, ?, 2)",
+            [username, email, hashedPassword]
+        );
+        
+        res.json({ message: "Shinobi registrado com sucesso!" });
+    } catch (err) {
+        console.error("Erro no registro:", err);
+        res.status(500).json({ error: "Erro interno no servidor" });
+    } finally {
+        if (conn) conn.end();
+    }
+});
+
+// 2. Rota de Login
+app.post('/api/login', async (req, res) => {
+    const { email, password } = req.body;
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        
+        // Busca o usuário pelo email na tabela 'usuarios'
+        const rows = await conn.query("SELECT * FROM usuarios WHERE email = ?", [email]);
+        
+        if (rows.length === 0) return res.status(401).json({ error: "Usuário não encontrado" });
+        
+        const user = rows[0];
+        
+        // Compara a senha enviada com a 'senha_hash' do banco
+        const validPass = await bcrypt.compare(password, user.senha_hash);
+        
+        if (!validPass) return res.status(401).json({ error: "Senha incorreta" });
+
+        // Gera um Token de acesso (JWT)
+        const token = jwt.sign(
+            { id: user.usuario_id, name: user.nome_usuario }, 
+            SECRET_KEY, 
+            { expiresIn: '24h' }
+        );
+        
+        // Retorna os dados para o frontend
+        res.json({ 
+            token, 
+            username: user.nome_usuario, 
+            userId: user.usuario_id 
+        });
+    } catch (err) {
+        console.error("Erro no login:", err);
+        res.status(500).json({ error: "Erro interno no servidor" });
+    } finally {
+        if (conn) conn.end();
+    }
+});
+
+// 3. Rota para Listar Comentários de uma página
+app.get('/api/comments/:pageId', async (req, res) => {
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        
+        // Faz um JOIN entre 'Comentarios' e 'usuarios' para pegar o nome de quem comentou
+        const query = `
+            SELECT u.nome_usuario, c.texto_comentario, c.data_comentario 
+            FROM Comentarios c
+            JOIN usuarios u ON c.usuario_id_fk = u.usuario_id
+            WHERE c.pagina_id = ? 
+            ORDER BY c.data_comentario DESC
+        `;
+        
+        // Nota: Aqui assumimos que você já rodou o script SQL para adicionar a coluna 'pagina_id'
+        // Se não rodou, o comando SQL vai falhar.
+        const rows = await conn.query(query, [req.params.pageId]);
+        
+        // Formata a resposta para o frontend
+        const formattedRows = rows.map(row => ({
+            user_name: row.nome_usuario,
+            comment_text: row.texto_comentario,
+            created_at: row.data_comentario
+        }));
+
+        res.json(formattedRows);
+    } catch (err) {
+        console.error("Erro ao buscar comentários:", err);
+        res.status(500).json({ error: "Erro ao buscar comentários" });
+    } finally {
+        if (conn) conn.end();
+    }
+});
+
+// 4. Rota para Criar um Novo Comentário
+app.post('/api/comments', async (req, res) => {
+    // Verifica se o usuário enviou o token de login
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return res.status(401).json({ error: "Acesso negado. Faça login." });
+
+    try {
+        // Valida o token e pega o ID do usuário
+        const decoded = jwt.verify(token, SECRET_KEY);
+        const { pageId, text } = req.body;
+        
+        let conn = await pool.getConnection();
+        
+        // Insere na tabela 'Comentarios'
+        await conn.query(
+            "INSERT INTO Comentarios (pagina_id, usuario_id_fk, texto_comentario) VALUES (?, ?, ?)",
+            [pageId, decoded.id, text]
+        );
+        
+        res.json({ message: "Comentário enviado com honra!" });
+        if (conn) conn.end();
+    } catch (err) {
+        console.error("Erro ao postar comentário:", err);
+        res.status(403).json({ error: "Sessão inválida. Faça login novamente." });
+    }
+});
+
+// Inicia o servidor na porta 3000
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor SoulsSync rodando na porta ${PORT}`);
+});

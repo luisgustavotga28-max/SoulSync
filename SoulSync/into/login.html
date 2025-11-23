@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso SoulSync</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Ajuste do CSS conforme o projeto -->
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+
+<body>
+
+    <div class="auth-background"></div>
+
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>SoulSync Archive</h1>
+            <p>Registre a sua jornada através dos mundos</p>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="login-box" class="auth-box active">
+            <h2>Login</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <input type="email" id="login-email" placeholder=" " required>
+                    <label>Email do Viajante</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="login-pass" placeholder=" " required>
+                    <label>Senha</label>
+                </div>
+
+                <button type="submit" class="btn-gold">Entrar no Portal</button>
+            </form>
+
+            <div class="switch-text">
+                Ainda não possui registo? <span onclick="toggleAuth()">Registe-se</span>
+            </div>
+        </div>
+
+        <!-- CADASTRO -->
+        <div id="register-box" class="auth-box">
+            <h2>Novo Registo</h2>
+
+            <form onsubmit="handleRegister(event)">
+                <div class="input-group">
+                    <input type="text" id="reg-name" placeholder=" " required>
+                    <label>Nome de Shinobi</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="reg-email" placeholder=" " required>
+                    <label>Email</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="reg-pass" placeholder=" " required>
+                    <label>Senha Secreta</label>
+                </div>
+
+                <button type="submit" class="btn-gold">Criar Lenda</button>
+            </form>
+
+            <div class="switch-text">
+                Já possui uma conta? <span onclick="toggleAuth()">Fazer Login</span>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px;">
+            <a href="Into.html" style="color:#888; text-decoration:none; font-size:0.9rem;">
+                ← Voltar ao Início
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        // Alterna entre Login e Registro
+        function toggleAuth() {
+            document.getElementById('login-box').classList.toggle('active');
+            document.getElementById('register-box').classList.toggle('active');
+        }
+
+        // LOGIN
+        async function handleLogin(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('login-email').value;
+            const senha = document.getElementById('login-pass').value;
+
+            try {
+                const res = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    localStorage.setItem('sekiro_token', data.token);
+                    localStorage.setItem('sekiro_user', data.usuario.nome);
+                    localStorage.setItem('sekiro_uid', data.usuario.id);
+
+                    window.location.href = 'Into.html'; // redireciona
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("O servidor não respondeu. Verifique se a API está rodando.");
+            }
+        }
+
+        // CADASTRO (corrigido !!!)
+        async function handleRegister(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const senha = document.getElementById('reg-pass').value;
+
+            try {
+                const res = await fetch(`${API_URL}/register`, {   // ✔ ROTA CORRETA
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, email, senha })
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    alert("Registo concluído com sucesso! Faça login agora.");
+                    toggleAuth();
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Erro de conexão com o servidor.");
+            }
+        }
+    </script>
+
+</body>
+</html>

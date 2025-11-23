@@ -709,4 +709,5 @@ main.content .page-header .subtitle {
     background: #252525; border: 1px solid #444; padding: 5px 10px; border-radius: 4px;
     font-size: 0.85rem; color: #ccc; display: flex; align-items: center; gap: 5px;
 }
-.material-tag span { color: var(--gold); font-weight: bold; }
+.material-tag span { color: var(--gold); font-weight: bold; 
+}

@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoulSync - Selecione um Jogo</title>
-    <link rel="stylesheet" href="into/into.css">
+    <link rel="stylesheet" href="/SoulSync/into/into.css">
 </head>
 
 <body>
     <div class="into-hero">
         <div class="hero-bg"></div>
 
+                <div class="auth-container-top">
+            <button id="btn-auth-action" class="btn-login-intro" onclick="handleAuthClick()">
+                Acesso Shinobi
+            </button>
+        </div>
+
         <header class="site-header">
-            <img src="into/logo_Branco.png" alt="SoulSync" class="site-logo">
-            <h1>Escolha seu destino</h1>
+            <img src="logo_Branco.png" alt="SoulSync" class="site-logo">
+                        <h1>Escolha seu destino</h1>
             <p class="subtitle">Selecione o jogo para acessar guias, tutoriais e toda a wiki do universo escolhido.</p>
-        </header>
+                </header>
 
         <main class="selector">
 
             <div class="games">
 
+                <!-- CARD WUKONG -->
                 <button class="game"
-                        data-target="Black Myth Wukong/index.html"
-                        data-audio="into/wukong.mp3" 
-                        data-bg="into/wukongOpen.jpg">
+                        data-target="../Black Myth Wukong/index.html"
+                        data-audio="wukong.mp3"
+                        data-bg="./wukongOpen.jpg">
                     <div class="art">
-                        <img src="into/wukong.png" alt="Black Myth: Wukong">
+                        <img src="wukong.png" alt="Black Myth: Wukong">
                     </div>
                     <div class="caption-block">
                         <span class="caption">Black Myth: Wukong</span>
                     </div>
                 </button>
 
+                <!-- CARD SEKIRO -->
                 <button class="game"
-                        data-target="Sekiro/indexSekiro.html"
-                        data-audio="into/sekiro.mp3"
-                        data-bg="into/sekiroOpen.jpg">
+                        data-target="../Sekiro/indexSekiro.html"
+                        data-audio="sekiro.mp3"
+                        data-bg="./sekiroOpen.jpg">
                     <div class="art">
-                        <img src="into/sekiro-logo.png" alt="Sekiro: Shadows Die Twice">
+                        <img src="sekiro-logo.png" alt="Sekiro: Shadows Die Twice">
                     </div>
                     <div class="caption-block">
                         <span class="caption">Sekiro: Shadows Die Twice</span>
@@ -47,9 +55,58 @@
 
             </div>
         </main>
-
     </div>
 
-    <script src="into/Into.js"></script>
+    <script>
+        // 1. Verifica se já tem alguém logado ao carregar a página
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = localStorage.getItem('sekiro_token');
+            const btn = document.getElementById('btn-auth-action');
+            const usuario = localStorage.getItem('sekiro_user');
+
+            if (token && usuario) {
+                // Se estiver logado, muda o texto para "Entrar no Portal"
+                btn.textContent = `Entrar como ${usuario}`;
+                btn.style.borderColor = '#4caf50'; // Verde sutil para indicar sucesso
+            } else {
+                // Se não, mantém "Login / Cadastro"
+                btn.textContent = "Login / Cadastro";
+            }
+        });
+
+        // 2. Função do Botão do Topo
+        function handleAuthClick() {
+            const token = localStorage.getItem('sekiro_token');
+            
+            if (token) {
+                // Se já logado, vai para o menu principal (Portal)
+                window.location.href = 'portal.html'; 
+            } else {
+                // Se não, vai para a tela de login
+                window.location.href = 'login.html';
+            }
+        }
+
+        // 3. (Opcional) Lógica para os botões dos Jogos
+        // Se você quiser que só quem tem login possa entrar nos jogos, use assim:
+        function verificarAcesso(urlDestino) {
+            // Se quiser liberar pra todos, apenas use: window.location.href = urlDestino;
+            
+            // Exemplo de restrição (descomente se quiser forçar login):
+            /*
+            const token = localStorage.getItem('sekiro_token');
+            if (!token) {
+                alert("Apenas Shinobis registrados podem acessar os arquivos sagrados.");
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = urlDestino;
+            }
+            */
+           
+           // Por enquanto, liberado:
+           window.location.href = urlDestino;
+        }
+    </script>
+
 </body>
 </html>

@@ -70,4 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
   loadHTML("header", "includes/header.html");
   loadHTML("sidebar", "includes/sidebar.html");
   loadHTML("footer", "includes/footer.html");
+  loadHTML('comments-area', 'includes/comments.html');
 });

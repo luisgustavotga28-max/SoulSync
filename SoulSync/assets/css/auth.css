@@ -1,0 +1,127 @@
+/* Reset básico */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #111;
+}
+
+/* Imagem de fundo com overlay escuro */
+.auth-background {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('../../assets/img/fundo.jpg') no-repeat center center/cover; /* Ajuste o caminho da sua imagem */
+    filter: brightness(0.4) blur(3px);
+    z-index: -1;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    border-top: 3px solid #d4af37; /* Toque dourado Sekiro */
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-header { text-align: center; margin-bottom: 30px; }
+.auth-header h1 { font-family: 'Cinzel', serif; color: #d4af37; font-size: 2.2rem; letter-spacing: 2px; }
+.auth-header p { color: #888; font-size: 0.9rem; margin-top: 5px; }
+
+/* Caixas de Login/Registro (Alternância) */
+.auth-box { display: none; animation: fadeIn 0.5s ease; }
+.auth-box.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 { color: #f5f5f5; margin-bottom: 20px; font-weight: 600; text-align: center; }
+
+/* Inputs Estilizados */
+.input-group { position: relative; margin-bottom: 25px; }
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #555;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 12px; left: 0;
+    color: #888;
+    pointer-events: none;
+    transition: 0.3s ease all;
+    font-size: 1rem;
+}
+
+/* Efeito do Label subindo */
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+    border-bottom-color: #d4af37;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 0.8rem;
+    color: #d4af37;
+}
+
+/* Botão */
+.btn-gold {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #8B0000, #a52a2a);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+}
+
+.btn-gold:hover {
+    background: transparent;
+    border-color: #d4af37;
+    color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Link de troca */
+.switch-text {
+    text-align: center;
+    margin-top: 20px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.switch-text span {
+    color: #d4af37;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.switch-text span:hover { color: #fff; }

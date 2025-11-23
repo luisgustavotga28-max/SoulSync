@@ -90,6 +90,8 @@ body::before {
     text-align: center;
     position: relative;
     z-index: 2;
+    /* Esta é a linha principal que empurra os logos para baixo */
+    margin-top: 72px; /* Aumenta o espaço entre o texto e os logos */
 }
 .selector h1 {
     font-size: clamp(2rem, 4vw, 2.8rem);
@@ -154,7 +156,7 @@ body::before {
    display: none;
 }
 
-/*  "Quadrado" da arte removido */
+/* "Quadrado" da arte removido */
 .art {
     background: transparent;
     border: none;
@@ -165,7 +167,7 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: none;
+    transition: transform 0.35s ease, filter 0.35s ease;
 }
 
 .art img {
@@ -233,13 +235,34 @@ body::before {
     margin-bottom: 0; /* Remove espaço extra */
 }
 
+/* Posiciona o botão no canto superior direito absoluto */
+.auth-container-top {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 1000; /* Garante que fique acima de tudo */
+}
 
-/* 2. MOVE OS LOGOS DOS JOGOS "PARA BAIXO" */
+.btn-login-intro {
+    background: rgba(0, 0, 0, 0.6);
+    color: #f5f5f5;
+    border: 1px solid #d4af37; /* Borda dourada */
+    padding: 10px 25px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
 
-.selector {
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    /* Esta é a linha principal que empurra os logos para baixo */
-    margin-top: 72px; /* Aumenta o espaço entre o texto e os logos */
+.btn-login-intro:hover {
+    background: #d4af37;
+    color: #000;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
 }

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Abdução Divina — Guia</title>
   <link rel="stylesheet" href="../../../assets/css/styleSekiro.css">
+  <link rel="stylesheet" href="../../../assets/css/comments.css">
 </head>
 <body>
 
@@ -123,7 +124,12 @@
                     </div>
                 </div>
             </div>
+
         </section>
+
+        <!-- ÁREA DE COMENTÁRIOS -->
+        <div id="comments-area"></div>
+
     </main>
   </div>
 
@@ -131,5 +137,28 @@
   <div id="footer"></div>
   
   <script src="../../../assets/js/include.js" data-include-base="../../../"></script>
+
+  <!-- SISTEMA DE COMENTÁRIOS (3 níveis) -->
+  <script type="module">
+    async function loadCommentsComponent() {
+      try {
+        const response = await fetch('/SoulSync/Sekiro/includes/comments.html');
+        const html = await response.text();
+
+        const commentsArea = document.getElementById('comments-area');
+        if (commentsArea) {
+          commentsArea.innerHTML = html;
+
+          // Carrega JS do sistema de comentários
+          await import('/SoulSync/assets/js/comments-api.js');
+        }
+      } catch (error) {
+        console.error("Erro ao carregar comentários:", error);
+      }
+    }
+
+    loadCommentsComponent();
+  </script>
+
 </body>
 </html>

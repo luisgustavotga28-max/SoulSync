@@ -11,6 +11,17 @@
     <div class="into-hero">
         <div class="hero-bg"></div>
 
+                <div class="auth-container-top">
+            <button id="btn-auth-action" class="btn-login-intro" onclick="handleAuthClick()">
+                Acesso Shinobi
+            </button>
+
+             <button id="btn-logout" class="btn-login-intro" style="display:none; background:#ff4444; border-color:#ff4444;" onclick="logoutUser()">
+        Sair da conta
+    </button>
+    
+        </div>
+
         <header class="site-header">
             <img src="logo_Branco.png" alt="SoulSync" class="site-logo">
                         <h1>Escolha seu destino</h1>
@@ -24,10 +35,11 @@
                 <!-- CARD WUKONG -->
                 <button class="game"
                         data-target="../Black Myth Wukong/index.html"
-                        data-audio="wukong.mp3"
-                        data-bg="./wukongOpen.jpg">
+                        data-audio="./wukong.mp3"
+                        data-bg="./wukongOpen.jpg"
+                        onclick="verificarAcesso(this.dataset.target)">
                     <div class="art">
-                        <img src="wukong.png" alt="Black Myth: Wukong">
+                        <img src="./wukong.png" alt="Black Myth: Wukong">
                     </div>
                     <div class="caption-block">
                         <span class="caption">Black Myth: Wukong</span>
@@ -37,8 +49,9 @@
                 <!-- CARD SEKIRO -->
                 <button class="game"
                         data-target="../Sekiro/indexSekiro.html"
-                        data-audio="sekiro.mp3"
-                        data-bg="./sekiroOpen.jpg">
+                        data-audio="./sekiro.mp3"
+                        data-bg="./sekiroOpen.jpg"
+                        onclick="verificarAcesso(this.dataset.target)">
                     <div class="art">
                         <img src="sekiro-logo.png" alt="Sekiro: Shadows Die Twice">
                     </div>
@@ -49,9 +62,110 @@
 
             </div>
         </main>
-
     </div>
 
-    <script src="Into.js"></script>
+    <script>
+        // 1. Verifica se já tem alguém logado ao carregar a página
+document.addEventListener("DOMContentLoaded", () => {
+    const token = localStorage.getItem('sekiro_token');
+    const usuario = localStorage.getItem('sekiro_user');
+
+    const btnAuth = document.getElementById('btn-auth-action');
+    const btnLogout = document.getElementById('btn-logout');
+
+    if (token && usuario) {
+        btnAuth.textContent = `Bem Vindo ${usuario}`;
+        btnAuth.style.borderColor = '#4caf50';
+        btnLogout.style.display = "inline-block"; // mostra o botão de logout
+    } else {
+        btnAuth.textContent = "Login / Cadastro";
+        btnLogout.style.display = "none"; // esconde o botão de logout
+    }
+});
+
+
+        // 2. Função do Botão do Topo
+function handleAuthClick() {
+    const token = localStorage.getItem('sekiro_token');
+    
+    if (token) {
+        // Se já logado, vai para o portal (na mesma pasta raiz)
+        window.location.href = 'Into.html'; 
+    } else {
+        // Se NÃO logado, vai para o login DENTRO DA PASTA into
+        window.location.href = 'login.html'; 
+    }
+}
+
+function logoutUser() {
+    localStorage.removeItem('sekiro_token');
+    localStorage.removeItem('sekiro_user');
+
+    alert("Você saiu da sua conta.");
+    window.location.reload();
+}
+
+
+        // 3. (Opcional) Lógica para os botões dos Jogos
+        // Se você quiser que só quem tem login possa entrar nos jogos, use assim:
+        function verificarAcesso(urlDestino) {
+            // Se quiser liberar pra todos, apenas use: window.location.href = urlDestino;
+            
+            // Exemplo de restrição (descomente se quiser forçar login):
+            /*
+            const token = localStorage.getItem('sekiro_token');
+            if (!token) {
+                alert("Apenas Shinobis registrados podem acessar os arquivos sagrados.");
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = urlDestino;
+            }
+            */
+           
+           // Por enquanto, liberado:
+           window.location.href = urlDestino;
+        }
+    </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".game");
+    const heroBg = document.querySelector(".hero-bg");
+
+    let currentAudio = null;
+
+    cards.forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            const bg = card.dataset.bg;
+            const audio = card.dataset.audio;
+
+            // Troca o background
+            if (bg) {
+                heroBg.style.backgroundImage = `url('${bg}')`;
+                heroBg.classList.add("is-visible");
+            }
+
+            // Reproduz o áudio
+            if (audio) {
+                if (currentAudio) currentAudio.pause();
+                
+                currentAudio = new Audio(audio);
+                currentAudio.volume = 0.7;
+                currentAudio.play().catch(() => {});
+            }
+        });
+
+        card.addEventListener("mouseleave", () => {
+            heroBg.classList.remove("is-visible");
+            
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>

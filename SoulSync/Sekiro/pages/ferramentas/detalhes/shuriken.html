@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shuriken Carregado — Guia</title>
   <link rel="stylesheet" href="../../../assets/css/styleSekiro.css">
+  <link rel="stylesheet" href="../../../assets/css/comments.css">
 </head>
 <body>
 
@@ -179,6 +180,7 @@
                 </div>
             </div>
         </section>
+        <div id="comments-area"></div>
     </main>
   </div>
 
@@ -186,5 +188,25 @@
   <div id="footer"></div>
   
   <script src="../../../assets/js/include.js" data-include-base="../../../"></script>
+
+<script type="module">
+    async function loadCommentsComponent() {
+        try {
+            // Carrega o HTML dos comentários
+            const response = await fetch('/SoulSync/Sekiro/includes/comments.html');
+            const html = await response.text();
+
+            const commentsArea = document.getElementById('comments-area');
+            commentsArea.innerHTML = html;
+
+            // IMPORTA O ARQUIVO CERTO (LOCAL REAL DO ARQUIVO)
+            await import('/SoulSync/assets/js/comments-api.js');
+        } catch (error) {
+            console.error("Erro ao carregar sistema de comentários:", error);
+        }
+    }
+
+    loadCommentsComponent();
+</script>
 </body>
 </html>
